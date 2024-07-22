@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+  
+<h1>Add new House</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 bg-success shadow">
+            <form action="/houses" method="post" class="needs-validation" novalidate >
+                <div class="my-3">
+                    <label for="location">Enter Location</label>
+                    <input class="form-control" type="text" id="location" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="type">House Type</label>
+                    <input class="form-control" type="text" id="type" name="houseType" required >
+                </div>
+                <div class="mb-3">
+                    <label for="size">size(in meter square)</label>
+                    <input class="form-control" type="text" id="size" name="size" required >
+                </div>
+                <div class="mb-3">
+                    <label for="rooms">Number of Rooms</label>
+                    <input class="form-control" type="text" id="rooms" name="rooms" required >
+                </div>
+                
+                <div class="input-group mb-3">
+                    <span class="input-group-text">price €</span>
+                    <input type="number" class="form-control" step="0.1" id="price" name="price" required >
+                    <span class="input-group-text">Euros</span>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="image"> enter image url</label>
+                    <input class="form-control" type="text" id="image" name="image" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description">description</label>
+                    <textarea class="form-control" name="description" id="description" cols="10" rows="5">enter description</textarea>
+                </div>
+                <button class="btn bg-info">save</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
+    
+
+<script>  //copied from bootstrap
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+<%- include('partials/footer') %>

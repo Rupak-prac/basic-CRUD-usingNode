@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+  
+<h3>Show page</h3>
+<div class="card shadow m-1" style="width: 18rem;">
+    <img src="<%= foundHouse.image %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= foundHouse.location %></h5>
+      <p class="card-text"><%= foundHouse.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Price - <%= foundHouse.price %></li>
+      <li class="list-group-item">type - <%= foundHouse.houseType %></li>
+      <li class="list-group-item">Size - <%= foundHouse.size %> m2</li>
+      <li class="list-group-item">Rooms - <%= foundHouse.rooms %></li>
+    </ul>
+    <div class="card-body">
+      <a href="/<%= foundHouse.id %>" class="card-link btn btn-info">Explore</a>
+      <div class="m-1">
+        <form method="POST" action="/houses/<%=foundHouse._id %>?_methods=DELETE">
+            <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+      
+    </div>
+</div>
+
+<%- include('partials/footer') %>

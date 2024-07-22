@@ -1,0 +1,9 @@
+<% if (flashMsg && flashMsg.length) { %> <!-- without if-condition, always a alert will display-->
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= flashMsg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<!-- above flash alert is included in boilerplate file (layouts/boilerplate.ejs) -->
+
