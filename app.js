@@ -15,9 +15,10 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/users')
 //const helmet = require('helmet');
 
-
-
-mongoose.connect('mongodb://127.0.0.1:27017/ownHomesDB');
+//mongodb+srv://rupak28:<db_password>@homes.85prm.mongodb.net/?retryWrites=true&w=majority&appName=homes
+//'mongodb://127.0.0.1:27017/ownHomesDB'
+dbUrl = process.env.DB_URL;
+mongoose.connect(dbUrl);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -29,9 +30,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.engine('ejs', ejsMate);
 
+const mySecret = process.env.SECRET;
 
 const sessionConfigure = {
-    secret: 'tHisIsSeCrEtStUuFf',
+    secret: mySecret,
     resave: false,
     saveUninitialized: false,
     cookies: {
