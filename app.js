@@ -15,7 +15,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/users')
 //const helmet = require('helmet');
 
-//mongodb+srv://rupak28:<db_password>@homes.85prm.mongodb.net/?retryWrites=true&w=majority&appName=homes
+
 //'mongodb://127.0.0.1:27017/ownHomesDB'
 dbUrl = process.env.DB_URL;
 mongoose.connect(dbUrl);
